@@ -32,6 +32,8 @@ a i {
 }
 
 .nav-search {
-  color: black;
+  text-align: center;
   padding: 350px;
+  color: black;
 }
+
