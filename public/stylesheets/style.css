@@ -11,6 +11,8 @@ a {
 a i {
   margin-right: 0.4rem;
 }
+
+/* 404 Error Page */
 .error404{
   text-align: center;
 }
@@ -21,6 +23,7 @@ a i {
   text-shadow: 0px 10px 10px rgba(0, 0, 0, 0.66);
 }
 
+/* Main Chat Page */
 .sidebar {
   background-color: white;
   width: 100%;
@@ -32,8 +35,26 @@ a i {
 }
 
 .nav-search {
+  display: flex;
   text-align: center;
-  padding: 350px;
+  width: 700px;
+  padding: 20x;
   color: black;
+}
+
+.nav-account {
+  color: black;
+  background-color: #0ea2b3;
+  width: 320px;
+  padding: 10px;
+  margin: 0;
+}
+
+.nav-logout {
+  color: black;
+  background-color: #0ea2b3;
+  width: 320px;
+  padding: 10px;
+  margin: 0;
 }
 
