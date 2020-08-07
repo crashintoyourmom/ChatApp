@@ -21,6 +21,7 @@ class UserController{
 
         // Add all routing middleware for user endpoints
         AraDTApp.post('/register', this.register);
+        AraDTApp.get('/register', this.getRegister);
         AraDTApp.post('/login', this.login);
         AraDTApp.get('/logout', this.logout);
         AraDTApp.get('/login', this.getLogin);
@@ -117,6 +118,10 @@ class UserController{
 
     getLogin(request, response, next) {
         response.render('login');
+    }
+
+    getRegister(request, response, next) {
+        response.render('register');
     }
 
 

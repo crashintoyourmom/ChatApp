@@ -11,8 +11,8 @@ class Router{
 
     constructor(){
         this.setVariables();
-        this.addBaseRoutes();
         this.addControllers();
+        this.addBaseRoutes();
         this.handle404s();
         this.handleErrors();
     }
@@ -38,6 +38,7 @@ class Router{
      */
     addBaseRoutes() {
         AraDTApp.get('/', this.index);
+        AraDTApp.get('/register', this.register);
     }
 
 
@@ -52,6 +53,10 @@ class Router{
     // Renders home page ./views/index.ejs
     index(request, response, next) {
         response.render('index');
+    }
+
+    register(request, response){
+        response.render('register');
     }
 
     // Adds middleware to add HTTP Error to 404 requests
@@ -78,6 +83,5 @@ class Router{
             response.render('error');
         });
     }
-
 }
 module.exports = Router;
