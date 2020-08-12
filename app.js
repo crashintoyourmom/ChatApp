@@ -37,6 +37,7 @@ AraDTApp.use(express.urlencoded({ extended: false }));
 // Assign static files directory
 AraDTApp.use(express.static(path.join(__dirname, 'public')));
 
+
 /**
  * Add simple MVC framework including:
  *      Firebase database class
@@ -56,5 +57,6 @@ var UserModel = require('./models/UserModel');
 AraDTUserModel = new UserModel();
 var Router = require('./classes/Router');
 AraDTRouter = new Router();
+
 
 module.exports = AraDTApp;
