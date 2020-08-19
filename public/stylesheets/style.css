@@ -1,6 +1,10 @@
 body {
   background-color:#f1f6fa;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #17a2b8;
+  height: 100vh;
 }
 
 a {
@@ -10,8 +14,6 @@ a {
 a i {
   margin-right: 0.4rem;
 }
-
-
 
 #bottomnav {
   height: 100px;
@@ -65,4 +67,56 @@ a i {
   font-weight: 400;
   text-align: center;
   display: inline-block;
+}
+
+/* Register */
+#register .container #register-row #register-column #register-box {
+  margin-top: 120px;
+  max-width: 600px;
+  height: 320px;
+  border: 1px solid #9C9C9C;
+  background-color: #EAEAEA;
+}
+#register .container #register-row #register-column #register-box #register-form {
+  padding: 20px;
+}
+#register .container #register-row #register-column #register-box #register-form #register-link {
+  margin-top: -85px;
+}
+
+/* Header */
+.sidebar {
+  background-color: white;
+  width: 100%;
+  height: 1000px;
+}
+
+.nav-login {
+  color: black;
+  background-color: #0ea2b3;
+  width: 320px;
+  padding: 10px;
+  margin: 0;
+}
+
+/* Login */
+#login .container #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 600px;
+  height: 320px;
+  border: 1px solid #9C9C9C;
+  background-color: #EAEAEA;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+
+/* Account */
+#account-box {
+  background-color: #17a2b8;
+  border: 5px solid #ffffff;
+  padding: 10px;
 }
