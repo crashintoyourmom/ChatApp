@@ -107,12 +107,12 @@ class UserController{
                 }).catch((error) => {
                     // Firebase registration has failed, so return Firebase errors
                     request.session.errors.register = [error.message];
-                    response.redirect('/');
+                    response.redirect('/register');
                 });
         } catch(errors) {
             // Form has failed validation, so return errors
             request.session.errors.register = errors;
-            response.redirect('/');
+            response.redirect('/register');
         }
     };
 
@@ -134,7 +134,7 @@ class UserController{
             try{
                 await AraDTUserModel.update(request, response)
                     .then(() => {
-                        response.locals.errors.profile = ['Your details have been updated'];
+                        response.locals.errors.profile = ['Your details have been updated.'];
                         response.render('account');
                     }).catch((error) => {
                         response.locals.errors.profile = [error.message];
@@ -157,7 +157,7 @@ class UserController{
             try{
                 await AraDTUserModel.updatePassword(request, response)
                     .then(() => {
-                        response.locals.errors.password = ['Your password has been updated'];
+                        response.locals.errors.password = ['Your password has been updated.'];
                         response.render('account');
                     }).catch((error) => {
                         response.locals.errors.password = [error.message];
@@ -182,13 +182,13 @@ class UserController{
     }
 
     logout = async (request, response) => {
-        request.session.errors.general = ['You have been logged out'];
+        request.session.errors.general = ['You have been logged out.'];
         response.locals.loggedin = false;
         request.session.destroy();
         await AraDTDatabase.firebase.auth().signOut().then(function() {
-                response.redirect('/');
+                response.redirect('/login');
             }).catch(function(error) {
-                response.redirect('/');
+                response.redirect('/account');
             });
     }
 

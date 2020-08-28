@@ -155,12 +155,12 @@ class ChannelController{
         var errors = response.locals.errors.channels;
 
         if (AraDTValidator.isEmpty(request.body.name)) {
-            errors.edit = ['You need to specify a name'];
+            errors.edit = ['You need to specify a name.'];
         } else {
             try{
                 await AraDTChannelModel.updateChannel(request, response)
                     .then(()=>{
-                        errors.edit = ['Your channel has been updated'];
+                        errors.edit = ['Your channel has been updated.'];
                     })
                     .catch((error) => {
                         errors.edit = [error.message];
@@ -195,20 +195,20 @@ class ChannelController{
         var channelId = request.params.channelId;
 
         if (!channelId) {
-            errors.general = ['You need to specify a channel to delete'];
+            errors.general = ['You need to specify a channel to delete.'];
         } else {
             try{
                 await AraDTChannelModel.deleteChannel(channelId)
                     .then(() => {
-                        errors.general = ['Your channel has been deleted'];
+                        errors.general = ['Your channel has been deleted.'];
                         response.redirect('/channels');
                     })
                     .catch(() => {
-                        errors.general = ['There was a problem deleting your channel'];
+                        errors.general = ['There was a problem deleting your channel.'];
                         response.redirect('/channels');
                     });
             } catch(errors) {
-                errors.general = ['There was a problem deleting your channel'];
+                errors.general = ['There was a problem deleting your channel.'];
             }
         }
         response.redirect('/channels');
