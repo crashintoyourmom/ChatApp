@@ -11,6 +11,11 @@ var subscribed = ("subscribed" in  channels) ? channels.subscribed : false
     <i id="expand-sidebar-icon" class="fas fa-chevron-right fa-2x"></i>
   </div>
 
+   <input type="text" name="displayName" placeholder="Display Name">
+            <input type="email" name="email" placeholder="Email">
+            <input type="file" name="avatar">
+            <button type="submit">Update</button>
+
   <div class="d-flex flex-grow-1 flex-wrap">
     <main id="main" class="col-md-8 col-lg-9 d-md-block">
       <h2>Main</h2>

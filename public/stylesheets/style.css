@@ -122,3 +122,11 @@ a i {
   border: 10px solid #ffffff;
   padding: 10px;
 }
+
+#avaUpdate{
+  display: none;
+}
+
+#output{
+  width: 100px;
+}
