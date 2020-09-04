@@ -41,6 +41,7 @@ class UserController{
                 // We have a logged in user, so request user from Firebase
                 var currentUser = await AraDTDatabase.firebase.auth().currentUser;
                 if (currentUser != null) {
+                    console.log(request.session.user);
                     // User returned, so add to session and local variables
                     request.session.user = currentUser;
                     response.locals.user = request.session.user;
