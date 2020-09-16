@@ -1,78 +1,81 @@
 <%- include('partials/header'); %>
 <%- include('partials/navbar'); %>
-<% if (locals.errors && locals.errors.account) { %>
-	<% locals.errors.account.forEach(function(error) { %>
-		<p class="alert alert-primary" role="alert"><%= error %></p>
-	<% }) %>
-<% } %>
-<% if (locals.user.photoURL) {%>
-  <p class="avatar">
-    <img src="<%= locals.user.photoURL %>" id="output" class="avatar img-circle">
-  </p>
- <% } %>
 
 <div class="d-flex flex-column flex-grow-1 flex-wrap container-fluid px-0">
   <div id="expand-sidebar" class="d-md-none" data-expanded="false">
     <i id="expand-sidebar-icon" class="fas fa-chevron-right fa-2x"></i>
   </div>
-
   <div class="d-flex flex-grow-1 flex-wrap">
-    <main id="main" class="col-md-8 col-lg-9 d-md-block">
+    <main id="main" class="col-12">
       <h2>Main</h2>
+      <h1>Edit Profile</h1>
+      <hr>
+      <% if (locals.errors && locals.errors.account) { %>
+        <% locals.errors.account.forEach(function(error) { %>
+          <p class="alert alert-primary" role="alert"><%= error %></p>
+        <% }) %>
+      <% } %>
+      <form action="/account" method="POST" enctype="multipart/form-data">
         <div class="container">
-          <h1>Edit Profile</h1>
-          <hr>
-     <form action="/account" method="post" enctype="multipart/form-data">
-        <div class="row">
+          <div class="row">
             <!-- left column -->
             <div class="col-md-3">
+                <p class="avatar">
+                  <img src="<%= locals.user.photoURL %>" id="output" class="avatar img-circle">
+                </p>
               <div class="text-center">
-                <input type="file" name="photoURL" class="form-control">
+                <input type="file" name="avatar" class="form-control" onchange="loadFile(event)">
               </div>
             </div>
-            
             <!-- edit form column -->
             <div class="col-md-9 personal-info">
               <h3>Personal info</h3>
-              <div class="form-group">
-                <label class="col-md-3 control-label">Username:</label>
+              <div class="form-group row">
+                <label class="col-md-4 control-label">Username:</label>
                 <div class="col-md-8">
-                  <input class="form-control" type="text" value="<%= locals.user.displayname %>">
+                  <input class="form-control" name="displayName" type="text" value="<%= locals.user.displayName %>">
                 </div>
               </div>
-                <div class="form-group">
-                  <label class="col-lg-3 control-label">Email:</label>
-                  <div class="col-lg-8">
-                    <input class="form-control" type="text" value="<%= locals.user.email %>">
-                  </div>
+              <div class="form-group row">
+                <label class="col-md-4 control-label">Email:</label>
+                <div class="col-md-8">
+                  <input class="form-control" name="email" type="text" value="<%= locals.user.email %>">
                 </div>
-                      <div class="col-md-8">
-                      <button type="submit">Update</button>
-        </form>
-
-              <form>
-                <div class="form-group">
-                  <label class="col-md-3 control-label">Password:</label>
-                  <div class="col-md-8">
-                    <input class="form-control" type="password" name="password" value="<%= locals.user.displaypassword %>">
-                  </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-8">
+                  <button class="btn btn-primary mb-5" type="submit">Update</button>
                 </div>
-                <div class="form-group">
-                  <label class="col-md-3 control-label">Confirm password:</label>
-                  <div class="col-md-8">
-                    <input class="form-control" type="password" name="password" value="11111122333">
-                    <button type="submit">Update Password</button>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-md-3 control-label"></label>
-                      <input type="reset" class="btn btn-default" value="Cancel">
-                    </div>
-                  </div>
-                </form>
-                </div>
+              </div>
             </div>
-        </div>
-        </form>
-      </div>
-      </main>
+          </div>
+      </form>
+      <form action="/password" method="post">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 offset-md-3">
+              <!-- left column -->
+              <div class="form-group row">
+                <label class="col-md-4 control-label">Password:</label>
+                <div class="col-md-8">
+                  <input class="form-control" type="password" name="password" value="">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-4 control-label">Confirm password:</label>
+                <div class="col-md-8">
+                  <input class="form-control" type="password" name="passwordConfirm" value="">
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-8">
+                  <button class="btn btn-primary" type="submit">Update Password</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      </form>
+    </main>
+  </div>
+</div>
 <%- include('partials/footer'); %>

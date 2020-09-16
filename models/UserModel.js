@@ -168,8 +168,6 @@ class UserModel{
      */
     update =  async (request, response) => {
 
-        console.log("################ UPDATE FILES #################");
-        console.log(request.files);
         // Extract form data from request
         var upDatedUser = {
             email: request.body.email,
@@ -178,16 +176,12 @@ class UserModel{
         // Check is email is valid and the user has a display name
         var { valid, errors } = AraDTValidator.updateUserValid(upDatedUser);
         
-        console.log("################ VALID FILES #################");
-        console.log(request.files);
 
         if (!valid) {
             // Validation failed, so return errors
             throw new Error(errors);
         } else {
             
-            console.log("################ REQUEST FILES #################");
-            console.log(request.files);
             // If form includes new avatar, upload this
             if (request.files) {
                 upDatedUser.photoURL = this.updateAvatar(request, response);

@@ -28,6 +28,7 @@ class UserController{
         AraDTApp.get('/account', this.getAccount);
         AraDTApp.post('/account', this.updateAccount);
         AraDTApp.post('/password', this.updatePassword);
+        AraDTApp.get('/channels', this.getChannels);
     }
 
     /**
@@ -123,6 +124,10 @@ class UserController{
 
     getRegister(request, response, next) {
         response.render('register');
+    }
+
+    getChannels(request, response, next) {
+        response.render('channels');
     }
 
 
