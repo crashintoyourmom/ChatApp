@@ -74,8 +74,6 @@ class Validator{
         if (this.isEmpty(data.email)) errors.push('You need to add an email');
         if (this.isEmpty(data.displayName)) errors.push('You need to include a display name');
     
-        console.log(errors);
-        console.log(valid);
         return {
             errors,
             valid: errors.length === 0 ? true : false
