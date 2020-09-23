@@ -10,9 +10,9 @@ var subscribed = ("subscribed" in  channels) ? channels.subscribed : false
 
 <div class="d-flex flex-grow-1 flex-wrap">
   <main id="main" class="col-md-8 col-lg-9 d-md-block">
-    <h1>Add</h1>
+    <h1>Create Channels</h1>
     <form id="channel-create-form" action="/channels/add" method="post" enctype="multipart/form-data">
-      <input type="text" class="form-control" name="name" placeholder="Channel Name" value="">
+      <input type="text" class="form-control" name="name" placeholder="Create!" value="">
       <input type="file" class="custom-file-input" name="avatar" id="avatar-upload">
       <% if (users) { %>
         <% users.forEach(function(user) { %>
@@ -20,7 +20,7 @@ var subscribed = ("subscribed" in  channels) ? channels.subscribed : false
           <p><%= user.name %></p>
         <% }) %>
       <% } %>
-      <button id="update" type="submit">Create</button>
+      <button class="btn btn-primary" id="update" type="submit">Create</button>
     </form>
   </main>
   <div class="col-md-4 col-lg-3">
