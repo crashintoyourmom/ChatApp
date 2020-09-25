@@ -1,4 +1,9 @@
 <%- include('partials/header'); %>
+<% if (locals.errors && locals.errors.register) { %>
+    <% locals.errors.register.forEach(function(error) { %>
+        <p class="alert alert-primary" role="alert"><%= error %></p>
+    <% }) %>
+<% } %>
 
     <div id="register">
         <div class="container">
@@ -9,7 +14,7 @@
                             <h3 class="text-center text-info">Register</h3>
                             <div class="form-group">
                                 <label for="email" class="text-info">Email:</label><br>
-                                <input type="text" name="email" id="email" class="form-control">
+                                <input type="email" name="email" id="email" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="password" class="text-info">Password:</label><br>
@@ -25,8 +30,8 @@
                             <div class="form-group">
                                 <input type="submit" name="submit" class="btn btn-info btn-md" value="Submit">
                             </div>
-                            <div id="login-link" class="text-right">
-                                <a href="/index" class="text-info">Login Here</a>
+                            <div id="register-link" class="text-right">
+                                <a href="/" class="text-info">Already have an account? Login Here!</a>
                             </div>
                         </form>
                     </div>

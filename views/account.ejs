@@ -7,14 +7,8 @@
   </div>
   <div class="d-flex flex-grow-1 flex-wrap">
     <main id="main" class="col-12">
-      <h2>Main</h2>
       <h1>Edit Profile</h1>
       <hr>
-      <% if (locals.errors && locals.errors.account) { %>
-        <% locals.errors.account.forEach(function(error) { %>
-          <p class="alert alert-primary" role="alert"><%= error %></p>
-        <% }) %>
-      <% } %>
       <form action="/account" method="POST" enctype="multipart/form-data">
         <div class="container">
           <div class="row">
@@ -30,6 +24,13 @@
             <!-- edit form column -->
             <div class="col-md-9 personal-info">
               <h3>Personal info</h3>
+              
+            <% if (locals.errors && locals.errors.profile) { %>
+              <% locals.errors.profile.forEach(function(error) { %>
+                <p class="alert alert-primary" role="alert"><%= error %></p>
+              <% }) %>
+            <% } %>
+
               <div class="form-group row">
                 <label class="col-md-4 control-label">Username:</label>
                 <div class="col-md-8">
@@ -54,11 +55,15 @@
         <div class="container">
           <div class="row">
             <div class="col-md-9 offset-md-3">
+
               <!-- left column -->
               <div class="form-group row">
                 <label class="col-md-4 control-label">Password:</label>
                 <div class="col-md-8">
                   <input class="form-control" type="password" name="password" value="">
+                  <small id="passwordHelpInline" class="text-muted">
+                    Must be over 6 characters long.
+                  </small>
                 </div>
               </div>
               <div class="form-group row">
@@ -67,10 +72,16 @@
                   <input class="form-control" type="password" name="passwordConfirm" value="">
                 </div>
               </div>
+
               <div class="form-group row">
                 <div class="col-md-8">
                   <button class="btn btn-primary" type="submit">Update Password</button>
                 </div>
+                <% if (locals.errors && locals.errors.password) { %>
+                  <% locals.errors.password.forEach(function(error) { %>
+                    <p class="alert alert-primary" role="alert"><%= error %></p>
+                  <% }) %>
+                <% } %>
               </div>
             </div>
           </div>
